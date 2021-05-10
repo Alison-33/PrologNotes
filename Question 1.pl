@@ -1,0 +1,38 @@
+individual(tom,male,adam,eve).
+individual(sandra,female,john,jenny).
+individual(daphne,female,tom,susan).
+individual(susan,female,michael,lucy).
+individual(peter,male,logan,anne).
+individual(luna,female,george,judy).
+individual(jim,male,alex,amy).
+individual(alex,male,sam,avery).
+individual(avery,female,philips,angela).
+individual(james,male,philips,angela).
+individual(chole,female,philips,angela).
+individual(philips,male,bryan,sophie).
+individual(andrew,male,bryan,sophie).
+individual(julian,female,bryan,sophie).
+individual(sophie,female,roger,helen).
+offspring(X,Y):-individual(X,_,Y,_).
+offspring(X,Y):-individual(X,_,_,Y).
+siblings(X,Y):-
+    individual(X,_,Z,_),
+	individual(Y,_,Z,_).
+siblings(X,Y):-
+    individual(X,_,_,Z),
+	individual(Y,_,_,Z).
+niblings(X,Y):-
+    offspring(X,Z),
+    siblings(Y,Z).
+puncle(X,Y):-
+    individual(Y,_,Z,_),
+    siblings(X,Z),
+    individual(X,male,_,_).
+modrige(X,Y):-
+    individual(Y,_,_,Z),
+    siblings(X,Z),
+    individual(X,female,_,_).
+avuncle(X,Y):-
+    individual(Y,_,_,Z),
+    siblings(X,Z),
+    individual(X,male,_,_).
