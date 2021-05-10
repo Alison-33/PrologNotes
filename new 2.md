@@ -44,7 +44,7 @@
 - grandparent(X, Z) :- parent(X,Y), parent(Y,Z).
 
 
-## Disjunction or conjunction rules
+### Disjunction or conjunction rules
 - ancestor(X, Y) :- parent(X, Y).
 - ancestor(X, Y) :- parent(X, Z), ancestor(Z, Y).
 - There is a **disjunction** between the 2 lines, and a **conjunction** between the two goals of the body of the second rule.
