@@ -9,6 +9,7 @@
 ### Facts and rules
 - **Facts** are propositions declared to be True
 - A **rule statement** gives rules of implication between propositions.
+- A rule **size/2** means a rule named "size" and has 2 lines.
 
 ### Questions and queries
 - The collection of statements constitutes a **declarative database**
@@ -77,3 +78,33 @@
 - X is a member of L if X is the head of L or X is a member of tail of L.
 - member(X, [X|\_]).
 - member(X, [\_|T]) :-member(X,T).
+
+
+### Checking for last element in list
+- If the list has one element, or the list has more than one element.
+- last_element(X, [X]).
+- last_element(X, [\_|T]) :- last_element(X, T).
+
+
+### Calculating the size of a list
+- size([], 0)
+- size([\_|T], N) :- size(T, N1), N is N1 + 1.
+
+
+### Built-in utility functions
+- findall(X, P, L) returns a list L with all values of X that satisfy predicate P.
+- ?-findall(F, father(F,\_), Lst).
+- To eliminate redundancies in a list, we can use list_to_set(List, Set).
+- ?-findall(F, father(F,\_), Lst), list_to_set(Lst,Set).
+- length(List, L) returns the length L of a given list.
+- We can encapsulate the example in a rule:
+- get_all_fathers(Set) :- findall(F, Father(F,\_), Lst), list_to_set(Lst, Set).
+- ?-get_all_fathers(Set).
+
+
+### findall and length in a rule
+qualifies_for_benefits(P) :-
+          woman(P),
+          findall(P, parent(P,\_), L),
+          length(L, N),
+          N >= 3.
