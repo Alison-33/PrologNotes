@@ -50,3 +50,17 @@
 - There is a **disjunction** between the 2 lines, and a **conjunction** between the two goals of the body of the second rule.
 
 
+### Anonymous variables
+- If any parameter of a relation is not important, we can replace it with an **anonymous variable** denoted by the underscore character:
+- is_father(X) :- father(X, _).
+- We can use anonymous variables in rules or in queries.
+
+
+### Lists
+- Lists are represented in square brackets[...].
+- The **empty list** is represented by [].
+- Every non-empty list can be represented in 2 parts:
+  - The **head**, which is the first **element**.
+  - The **tail**, which is the **list** contaning the remaining elements.
+  - The head of [john, eve, paul] is john.
+  - The tail of [john, eve, paul] is [eve, paul].
