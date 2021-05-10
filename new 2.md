@@ -64,3 +64,16 @@
   - The **tail**, which is the **list** contaning the remaining elements.
   - The head of [john, eve, paul] is john.
   - The tail of [john, eve, paul] is [eve, paul].
+
+
+### List representations
+- The symbol **|** in [H|T] represents a list whose head is H and tail is T.
+- We can represent the above example as [john | [eve, paul]]
+- Or [john | [eve | [paul | []]]]
+
+
+### Checking for list membership
+- To define a procedure member(X,L) which succeeds if X is an element of a list L.
+- X is a member of L if X is the head of L or X is a member of tail of L.
+- member(X, [X|\_]).
+- member(X, [\_|T]) :-member(X,T).
